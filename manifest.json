@@ -1,0 +1,27 @@
+{
+	"manifest_version": 3,
+	"name": "AI Summary For Articles",
+	"version": "1.0",
+	"description": "Summarize articles using AI",
+
+	"permissions": ["sidePanel", "activeTab", "scripting", "storage"],
+
+	"action": {
+		"default_icon": "./summary-check.png",
+		"default_title": "Open Side Panel"
+	},
+	"side_panel": {
+		"default_path": "side-panel.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content.js"]
+		}
+	],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"options_page": "options.html",
+	"host_permissions": ["<all_urls>"]
+}
